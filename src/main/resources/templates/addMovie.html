@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Movies</title>
+</head>
+<body ng-app="app">
+<div class="container" ng-controller="AddController">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="lead">Add New Movie</span></div>
+        <div class="formcontainer">
+            <form name="movieForm" class="form-horizontal" ng-submit="addMovie()">
+                <label>Title</label>
+                <input type="text" name="title" class="form-control" ng-model="title" required="required"/>
+                <label>Description</label>
+                <input type="text" name="shortDescription" class="form-control" ng-model="shortDescription"
+                       required="required"/>
+                <label>Age Rating</label>
+                <select type="text" name="ageRating" class="form-control" ng-model="ageRating" required="required">
+                    <option value="G">G</option>
+                    <option value="PG">PG</option>
+                    <option value="PG-13">PG-13</option>
+                    <option value="R">R</option>
+                    <option value="NC-17">NC-17</option>
+                </select>
+                <div class="btn-group pull-right">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    <a th:href="@{/}" class="btn btn-danger">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/angular.min.js"></script>
+<script src="js/add.js"></script>
+</body>
+</html>

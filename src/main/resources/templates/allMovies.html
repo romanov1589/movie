@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Movies</title>
+</head>
+<body ng-app="app">
+<div class="container" ng-controller="MoviesController">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="lead">Film View</span></div>
+        <div class="viewcontainer">
+            <p>Title: {{title}}</p>
+            <p>Description: {{description}}</p>
+            <p>Age Rating: {{agerating}}</p>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="lead">Movies List</span>
+            <div class="btn-group pull-right">
+                <a th:href="@{/addmovie}" class="btn btn-success">Add new movie</a>
+            </div>
+        </div>
+        <div class="listcontainer">
+            <table class="table table-hover">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Age Rating</th>
+                </tr>
+                <tr ng-repeat="movie in movies">
+                    <td>{{movie.id}}</td>
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.shortDescription}}</td>
+                    <td>{{movie.ageRating}}</td>
+                    <td>
+                    <td><a ng-click="viewMovie(movie)" class="btn btn-small btn-primary">View</a></td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/angular.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
