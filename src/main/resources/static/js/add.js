@@ -7,13 +7,13 @@ app.controller('AddController', function($scope, $http, $location, $window) {
             "shortDescription": $scope.shortDescription,
             "ageRating": $scope.ageRating
         };
-        $http.post(url, data).then(function(data){
+        $http.post(url, data).then(function(){
             $scope.title = "";
             $scope.shortDescription = "";
             $scope.ageRating = "";
             $window.location.href="/";
         })
-            .catch(function(data){
+            .catch(function(){
                 alert("error");
             });
     }

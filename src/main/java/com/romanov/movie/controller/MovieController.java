@@ -25,10 +25,16 @@ public class MovieController {
         movieRepository.save(movie);
     }
 
+    @DeleteMapping(value="/movies/{id}")
+    public void deleteMovie(@PathVariable("id") Integer id){
+        movieRepository.deleteMovieById(id);
+    }
+
     @GetMapping(value="/movies/{id}")
     public Movie getMovie(@PathVariable("id") Integer id){
         return movieRepository.findOne(id);
     }
+
 
 //    @RequestMapping(value = "/", method = RequestMethod.GET)
 //    public @ResponseBody String index() {

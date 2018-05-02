@@ -35,9 +35,8 @@
                     <td>{{movie.title}}</td>
                     <td>{{movie.shortDescription}}</td>
                     <td>{{movie.ageRating}}</td>
-                    <td>
-                    <td><a ng-click="viewMovie(movie)" class="btn btn-small btn-primary">View</a></td>
-                    </td>
+                    <td><a ng-click="viewMovie(movie)" class="btn btn-small btn-primary">View</a>
+                        <a ng-click="deleteMovie(movie)" class="btn btn-small btn-danger">Delete</a></td>
                 </tr>
             </table>
         </div>

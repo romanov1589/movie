@@ -1,14 +1,14 @@
 var app = angular.module('app', []);
 
-app.controller('MoviesController', function($scope, $http, $location){
+app.controller('MoviesController', function ($scope, $http, $location, $window) {
     $scope.movies = [];
     $http.get('http://localhost:8080/movies')
-        .then(function (response){
+        .then(function (response) {
             $scope.movies = response.data;
             console.log("status:" + response.status);
-        }).catch(function(response) {
+        }).catch(function (response) {
         console.error('Error occurred:', response.status, response.data);
-    }).finally(function() {
+    }).finally(function () {
         console.log("Task Finished.");
     }),
 
@@ -16,6 +16,15 @@ app.controller('MoviesController', function($scope, $http, $location){
             $scope.description = movie.shortDescription;
             $scope.title = movie.title;
             $scope.agerating = movie.ageRating;
+        },
+
+        $scope.deleteMovie = function (movie) {
+            $http.delete('http://localhost:8080/movies/' + movie.id).
+            then(function () {
+                $window.location.href = "/";
+            }).catch(function () {
+                alert("error")
+            })
         };
 
     // $scope.viewMovie = function(movie){
