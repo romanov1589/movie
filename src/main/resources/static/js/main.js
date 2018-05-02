@@ -16,6 +16,7 @@ app.controller('MoviesController', function ($scope, $http, $location, $window) 
             $scope.description = movie.shortDescription;
             $scope.title = movie.title;
             $scope.agerating = movie.ageRating;
+            $scope.actors = movie.actors;
         },
 
         $scope.deleteMovie = function (movie) {

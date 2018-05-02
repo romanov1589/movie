@@ -11,9 +11,13 @@
     <div class="panel panel-default">
         <div class="panel-heading"><span class="lead">Film View</span></div>
         <div class="viewcontainer">
-            <p>Title: {{title}}</p>
-            <p>Description: {{description}}</p>
-            <p>Age Rating: {{agerating}}</p>
+            <p><b>Title:</b> {{title}}</p>
+            <p><b>Description:</b> {{description}}</p>
+            <p><b>Age Rating:</b> {{agerating}}</p>
+            <p><b>Actors:</b></p>
+            <ul>
+                <li ng-repeat="actor in actors">{{actor.firstName + " " + actor.lastName}} </li>
+            </ul>
         </div>
     </div>
     <div class="panel panel-default">
