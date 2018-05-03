@@ -16,6 +16,11 @@ public class WebController {
         return "addMovie";
     }
 
+    @GetMapping(value = "addactor")
+    public String addActor(){
+        return "addActor";
+    }
+
 //    @GetMapping(value = "/allmovies/{id}")
 //    public String getMoviePage(){
 //        return "oneMovie";

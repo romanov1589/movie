@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Actors</title>
+</head>
+<body ng-app="app">
+<div class="container" ng-controller="AddActorController">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="lead">Add New Actor</span></div>
+        <div class="formcontainer">
+            <form name="actorForm" class="form-horizontal" ng-submit="addActor()">
+                <label>First Name</label>
+                <input type="text" name="firstName" class="form-control" ng-model="firstName" required="required"/>
+                <label>Last Name</label>
+                <input type="text" name="lastName" class="form-control" ng-model="lastName"
+                       required="required"/>
+                <div class="btn-group pull-right">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    <a th:href="@{/}" class="btn btn-danger">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/angular.min.js"></script>
+<script src="js/addActor.js"></script>
+</body>
+</html>
