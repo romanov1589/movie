@@ -14,10 +14,23 @@
             <p><b>Title:</b> {{title}}</p>
             <p><b>Description:</b> {{description}}</p>
             <p><b>Age Rating:</b> {{agerating}}</p>
+            <p><b>Running Time:</b> {{runningTime}}</p>
+            <p><b>Release Date:</b> {{releaseDate}}</p>
+            <p><b>Genre:</b> {{genre}}</p>
+            <p><b>Director:</b> {{director}}</p>
             <p><b>Actors:</b></p>
             <ul>
-                <li ng-repeat="actor in actors">{{actor.firstName + " " + actor.lastName}} </li>
+                <li ng-repeat="movieActor in movieActors">{{movieActor.firstName + " " + movieActor.lastName}} </li>
             </ul>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="lead">List of Actors:</span>
+            <div class="select-group pull-right">
+            <select ng-model="selectedActor" class="form-control" name="selectedActor">
+                <option ng-repeat="actor in allActors">{{actor.actorId}} {{actor.firstName}} {{actor.lastName}}</option>
+            </select>
+            </div>
         </div>
     </div>
     <div class="panel panel-default">
@@ -40,8 +53,15 @@
                     <td>{{movie.title}}</td>
                     <td>{{movie.shortDescription}}</td>
                     <td>{{movie.ageRating}}</td>
-                    <td><a ng-click="viewMovie(movie)" class="btn btn-small btn-primary">View</a>
-                        <a ng-click="deleteMovie(movie)" class="btn btn-small btn-danger">Delete</a></td>
+                    <td>
+                        <a ng-click="addActorToMovie(movie)" class="btn btn-success pull-left">Add actor</a>
+                    </td>
+                    <td>
+                        <div class="btn-group pull-right">
+                            <a ng-click="viewMovie(movie)" class="btn btn-small btn-primary">View</a>
+                            <a ng-click="deleteMovie(movie)" class="btn btn-small btn-danger">Delete</a>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>

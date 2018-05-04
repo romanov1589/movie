@@ -18,13 +18,27 @@ public class Movie {
     @NotNull
     @Size(min = 1, max = 40, message = "Description must not be empty")
     private String shortDescription;
+    @NotNull
     private String ageRating;
+    @NotNull
+    private String runningTime;
+    @NotNull
+    private String releaseDate;
+    @NotNull
+    private String genre;
+    @NotNull
+    private String director;
     private Set<Actor> actors = new HashSet<>();
 
-    public Movie(String title, String shortDescription, String ageRating) {
+    public Movie(String title, String shortDescription, String ageRating, String runningTime,
+                 String releaseDate, String genre, String director) {
         this.title = title;
         this.shortDescription = shortDescription;
         this.ageRating = ageRating;
+        this.runningTime = runningTime;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+        this.director = director;
     }
 
     public Movie() {
@@ -64,6 +78,39 @@ public class Movie {
         this.ageRating = ageRating;
     }
 
+    public String getRunningTime() {
+        return runningTime;
+    }
+
+    public void setRunningTime(String runningTime) {
+        this.runningTime = runningTime;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "movie_actor",
@@ -77,4 +124,5 @@ public class Movie {
     public void setActors(Set<Actor> actors) {
         this.actors = actors;
     }
+
 }

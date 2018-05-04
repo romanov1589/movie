@@ -1,6 +1,8 @@
 package com.romanov.movie.controller;
 
+import com.romanov.movie.model.Actor;
 import com.romanov.movie.model.Movie;
+import com.romanov.movie.repository.ActorRepository;
 import com.romanov.movie.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -13,6 +15,9 @@ public class MovieController {
 
     @Autowired
     private MovieRepository movieRepository;
+
+    @Autowired
+    private ActorRepository actorRepository;
 
     @GetMapping(value = "/movies")
     public List<Movie> getMovies(){
@@ -35,6 +40,13 @@ public class MovieController {
         return movieRepository.findOne(id);
     }
 
+    @PutMapping(value="movies/{id}/{actorId}")
+    public void addActorMovie(@PathVariable("id") Integer id, @RequestBody @PathVariable("actorId") Integer actorId){
+        Movie movie = movieRepository.findOne(id);
+        Actor actor = actorRepository.findOne(actorId);
+        movie.getActors().add(actor);
+        movieRepository.save(movie);
+    }
 
 //    @RequestMapping(value = "/", method = RequestMethod.GET)
 //    public @ResponseBody String index() {

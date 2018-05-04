@@ -1,6 +1,18 @@
 var app = angular.module('app', []);
 
 app.controller('MoviesController', function ($scope, $http, $location, $window) {
+
+    $scope.allActors = [];
+    $http.get('http://localhost:8080/actors')
+        .then(function (response) {
+            $scope.allActors = response.data;
+            console.log("status:" + response.status);
+        }).catch(function (response) {
+        console.error('Error occurred:', response.status, response.data);
+    }).finally(function () {
+        console.log("Task Finished.");
+    });
+
     $scope.movies = [];
     $http.get('http://localhost:8080/movies')
         .then(function (response) {
@@ -10,23 +22,37 @@ app.controller('MoviesController', function ($scope, $http, $location, $window) 
         console.error('Error occurred:', response.status, response.data);
     }).finally(function () {
         console.log("Task Finished.");
-    }),
+    });
 
-        $scope.viewMovie = function (movie) {
-            $scope.description = movie.shortDescription;
-            $scope.title = movie.title;
-            $scope.agerating = movie.ageRating;
-            $scope.actors = movie.actors;
-        },
+    $scope.viewMovie = function (movie) {
+        $scope.description = movie.shortDescription;
+        $scope.title = movie.title;
+        $scope.agerating = movie.ageRating;
+        $scope.runningTime = movie.runningTime;
+        $scope.releaseDate = movie.releaseDate;
+        $scope.genre = movie.genre;
+        $scope.director = movie.director;
+        $scope.movieActors = movie.actors;
+    };
 
-        $scope.deleteMovie = function (movie) {
-            $http.delete('http://localhost:8080/movies/' + movie.id).
-            then(function () {
-                $window.location.href = "/";
-            }).catch(function () {
-                alert("error")
-            })
-        };
+    $scope.deleteMovie = function (movie) {
+        $http.delete('http://localhost:8080/movies/' + movie.id).then(function () {
+            $window.location.href = "/";
+        }).catch(function () {
+            alert("error")
+        })
+    };
+
+    $scope.addActorToMovie = function(movie){
+        if($scope.selectedActor == null){
+            alert('You should choose an actor form actor\'s list');
+        }
+        $http.put('http://localhost:8080/movies/' + movie.id + '/' + $scope.selectedActor[0]).then(function () {
+            $window.location.href = "/";
+        }).catch(function () {
+            alert("error")
+        });
+    };
 
     // $scope.viewMovie = function(movie){
     //     $scope.movie = [];
