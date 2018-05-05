@@ -2,6 +2,20 @@
     margin-top: 30px;
 }
 
-.ng-invalid{
+input.ng-invalid.ng-dirty{
     border:1px solid red;
+}
+.input-span{
+    color: #c9302c;
+}
+
+table{
+    table-layout: fixed;
+    width: auto;
+}
+td{
+    word-wrap: break-word;
+}
+.viewcontainer{
+    word-wrap: break-word;
 }

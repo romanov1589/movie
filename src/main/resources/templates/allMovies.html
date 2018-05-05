@@ -45,14 +45,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
-                    <th>Description</th>
-                    <th>Age Rating</th>
+                    <th>Genre</th>
                 </tr>
                 <tr ng-repeat="movie in movies">
                     <td>{{movie.id}}</td>
                     <td>{{movie.title}}</td>
-                    <td>{{movie.shortDescription}}</td>
-                    <td>{{movie.ageRating}}</td>
+                    <td>{{movie.genre}}</td>
                     <td>
                         <a ng-click="addActorToMovie(movie)" class="btn btn-success pull-left">Add actor</a>
                     </td>

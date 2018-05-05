@@ -13,10 +13,9 @@ import java.util.Set;
 public class Movie {
     private int id;
     @NotNull
-    @Size(min = 1, message = "Title must not be empty")
     private String title;
     @NotNull
-    @Size(min = 1, max = 40, message = "Description must not be empty")
+    @Size(max = 200)
     private String shortDescription;
     @NotNull
     private String ageRating;

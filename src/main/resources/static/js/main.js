@@ -36,30 +36,26 @@ app.controller('MoviesController', function ($scope, $http, $location, $window) 
     };
 
     $scope.deleteMovie = function (movie) {
-        $http.delete('http://localhost:8080/movies/' + movie.id).then(function () {
-            $window.location.href = "/";
-        }).catch(function () {
-            alert("error")
-        })
+        var confirmDeleting = $window.confirm('Are you sure you want to delete this movie?');
+        if(confirmDeleting) {
+            $http.delete('http://localhost:8080/movies/' + movie.id).then(function () {
+                $window.location.href = "/";
+            }).catch(function () {
+                alert("error")
+            })
+        }
     };
 
     $scope.addActorToMovie = function(movie){
         if($scope.selectedActor == null){
-            alert('You should choose an actor form actor\'s list');
+            alert("You should choose an actor from Actor\'s List");
         }
         $http.put('http://localhost:8080/movies/' + movie.id + '/' + $scope.selectedActor[0]).then(function () {
+            alert("Actord added to movie!");
             $window.location.href = "/";
         }).catch(function () {
             alert("error")
         });
     };
-
-    // $scope.viewMovie = function(movie){
-    //     $scope.movie = [];
-    //     $http.get('http://localhost:8080/movies/' + movie).then(function (response) {
-    //         $scope.movie = response.data;
-    //     })
-    // }
-
 
 });

@@ -11,14 +11,18 @@
     <div class="panel panel-default">
         <div class="panel-heading"><span class="lead">Add New Actor</span></div>
         <div class="formcontainer">
-            <form name="actorForm" class="form-horizontal" ng-submit="addActor()">
-                <label>First Name</label>
+            <form name="actorForm" ng-submit="addActor()" novalidate="novalidate">
+                <p><b>First Name</b></p>
                 <input type="text" name="firstName" class="form-control" ng-model="firstName" required="required"/>
-                <label>Last Name</label>
+                <span class="input-span" ng-show="actorForm.firstName.$dirty &amp;&amp; actorForm.firstName.$error.required">
+                    Please add first name</span>
+                <p><b>Last Name</b></p>
                 <input type="text" name="lastName" class="form-control" ng-model="lastName"
                        required="required"/>
+                <span class="input-span" ng-show="actorForm.lastName.$dirty &amp;&amp; actorForm.lastName.$error.required">
+                    Please add last name</span>
                 <div class="btn-group pull-right">
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="actorForm.$invalid">Add</button>
                     <a th:href="@{/}" class="btn btn-danger">Cancel</a>
                 </div>
             </form>
