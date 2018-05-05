@@ -17,13 +17,13 @@ public class ActorController {
     @Autowired
     private ActorRepository actorRepository;
 
-    @PostMapping(value="/addactor")
-    public void addActor(@RequestBody @Validated Actor actor){
+    @PostMapping(value = "/addactor")
+    public void addActor(@RequestBody @Validated Actor actor) {
         actorRepository.save(actor);
     }
 
     @GetMapping(value = "/actors")
-    public List<Actor> getActors(){
+    public List<Actor> getActors() {
         List<Actor> actors = actorRepository.findAll();
         return actors;
     }

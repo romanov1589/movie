@@ -14,12 +14,14 @@
             <form name="actorForm" ng-submit="addActor()" novalidate="novalidate">
                 <p><b>First Name</b></p>
                 <input type="text" name="firstName" class="form-control" ng-model="firstName" required="required"/>
-                <span class="input-span" ng-show="actorForm.firstName.$dirty &amp;&amp; actorForm.firstName.$error.required">
+                <span class="input-span"
+                      ng-show="actorForm.firstName.$dirty &amp;&amp; actorForm.firstName.$error.required">
                     Please add first name</span>
                 <p><b>Last Name</b></p>
                 <input type="text" name="lastName" class="form-control" ng-model="lastName"
                        required="required"/>
-                <span class="input-span" ng-show="actorForm.lastName.$dirty &amp;&amp; actorForm.lastName.$error.required">
+                <span class="input-span"
+                      ng-show="actorForm.lastName.$dirty &amp;&amp; actorForm.lastName.$error.required">
                     Please add last name</span>
                 <div class="btn-group pull-right">
                     <button type="submit" class="btn btn-primary" ng-disabled="actorForm.$invalid">Add</button>

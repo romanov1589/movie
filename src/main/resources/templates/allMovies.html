@@ -20,16 +20,17 @@
             <p><b>Director:</b> {{director}}</p>
             <p><b>Actors:</b></p>
             <ul>
-                <li ng-repeat="movieActor in movieActors">{{movieActor.firstName + " " + movieActor.lastName}} </li>
+                <li ng-repeat="movieActor in movieActors">{{movieActor.firstName + " " + movieActor.lastName}}</li>
             </ul>
         </div>
     </div>
     <div class="panel panel-default">
         <div class="panel-heading"><span class="lead">List of Actors:</span>
             <div class="select-group pull-right">
-            <select ng-model="selectedActor" class="form-control" name="selectedActor">
-                <option ng-repeat="actor in allActors">{{actor.actorId}} {{actor.firstName}} {{actor.lastName}}</option>
-            </select>
+                <select ng-model="selectedActor" class="form-control" name="selectedActor">
+                    <option ng-repeat="actor in allActors">{{actor.actorId}} {{actor.firstName}} {{actor.lastName}}
+                    </option>
+                </select>
             </div>
         </div>
     </div>

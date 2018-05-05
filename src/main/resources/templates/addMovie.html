@@ -7,7 +7,7 @@
     <title>Movies</title>
 </head>
 <body ng-app="app">
-<div class="container" ng-controller="AddController">
+<div class="container" ng-controller="AddMovieController">
     <div class="panel panel-default">
         <div class="panel-heading"><span class="lead">Add New Movie</span></div>
         <div class="formcontainer">
@@ -19,9 +19,11 @@
                 <p><b>Description</b></p>
                 <input type="text" name="shortDescription" class="form-control" ng-model="shortDescription"
                        required="required" ng-maxlength="200"/>
-                <span class="input-span" ng-show="movieForm.shortDescription.$dirty &amp;&amp; movieForm.shortDescription.$error.required">
+                <span class="input-span"
+                      ng-show="movieForm.shortDescription.$dirty &amp;&amp; movieForm.shortDescription.$error.required">
                     Please fill out the Description field</span>
-                <span class="input-span" ng-show="movieForm.shortDescription.$dirty &amp;&amp; movieForm.shortDescription.$error.maxlength">
+                <span class="input-span"
+                      ng-show="movieForm.shortDescription.$dirty &amp;&amp; movieForm.shortDescription.$error.maxlength">
                     The Description field is too long</span>
                 <p><b>Age Rating</b></p>
                 <select type="text" name="ageRating" class="form-control" ng-model="ageRating" required="required">
@@ -34,16 +36,21 @@
                 <p><b>Running Time</b></p>
                 <input type="text" name="runningTime" class="form-control" ng-model="runningTime" placeholder="hh:mm:ss"
                        required="required" ng-pattern="/^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/"/>
-                <span class="input-span" ng-show="movieForm.runningTime.$dirty &amp;&amp; movieForm.runningTime.$error.required">
+                <span class="input-span"
+                      ng-show="movieForm.runningTime.$dirty &amp;&amp; movieForm.runningTime.$error.required">
                     Please fill out the Running Time field</span>
-                <span class="input-span" ng-show="movieForm.runningTime.$dirty &amp;&amp; movieForm.runningTime.$error.pattern">
+                <span class="input-span"
+                      ng-show="movieForm.runningTime.$dirty &amp;&amp; movieForm.runningTime.$error.pattern">
                     Please fill out the Running Time field correctly</span>
                 <p><b>Release Date</b></p>
-                <input type="text" name="releaseDate" class="form-control" ng-model="releaseDate" placeholder="yyyy/mm/dd"
+                <input type="text" name="releaseDate" class="form-control" ng-model="releaseDate"
+                       placeholder="yyyy/mm/dd"
                        required="required" ng-pattern="/((?:19|20)\d\d)/(0?[1-9]|1[012])/([12][0-9]|3[01]|0?[1-9])/"/>
-                <span class="input-span" ng-show="movieForm.releaseDate.$dirty &amp;&amp; movieForm.releaseDate.$error.required">
+                <span class="input-span"
+                      ng-show="movieForm.releaseDate.$dirty &amp;&amp; movieForm.releaseDate.$error.required">
                     Please fill out the Release Date field</span>
-                <span class="input-span" ng-show="movieForm.releaseDate.$dirty &amp;&amp; movieForm.releaseDate.$error.pattern">
+                <span class="input-span"
+                      ng-show="movieForm.releaseDate.$dirty &amp;&amp; movieForm.releaseDate.$error.pattern">
                     Please fill out the Release Date field correctly</span>
                 <p><b>Genre</b></p>
                 <select type="text" name="genre" class="form-control" ng-model="genre" required="required">
@@ -58,7 +65,8 @@
                 <p><b>Director</b></p>
                 <input type="text" name="director" class="form-control" ng-model="director"
                        required="required"/>
-                <span class="input-span" ng-show="movieForm.director.$dirty &amp;&amp; movieForm.director.$error.required">
+                <span class="input-span"
+                      ng-show="movieForm.director.$dirty &amp;&amp; movieForm.director.$error.required">
                     Please fill out the Director field</span>
                 <div class="btn-group pull-right">
                     <button type="submit" class="btn btn-primary" ng-disabled="movieForm.$invalid">Add</button>

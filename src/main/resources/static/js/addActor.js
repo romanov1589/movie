@@ -1,18 +1,19 @@
 var app = angular.module('app', []);
-app.controller('AddActorController', function($scope, $http, $location, $window) {
-    $scope.addActor = function(){
+app.controller('AddActorController', function ($scope, $http, $location, $window) {
+
+    $scope.addActor = function () {
         var url = "http://localhost:8080/addactor";
         var data = {
             "firstName": $scope.firstName,
-            "lastName": $scope.lastName,
+            "lastName": $scope.lastName
         };
-        $http.post(url, data).then(function(){
+        $http.post(url, data).then(function () {
             $scope.firstName = "";
             $scope.lastName = "";
-            $window.location.href="/";
+            $window.location.href = "/";
         })
-            .catch(function(){
-                alert("error");
+            .catch(function () {
+                alert("error adding new actor");
             });
     }
 });

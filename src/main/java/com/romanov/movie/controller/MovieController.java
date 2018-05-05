@@ -20,28 +20,28 @@ public class MovieController {
     private ActorRepository actorRepository;
 
     @GetMapping(value = "/movies")
-    public List<Movie> getMovies(){
+    public List<Movie> getMovies() {
         List<Movie> movies = movieRepository.findAll();
         return movies;
     }
 
-    @PostMapping(value="/addmovie")
-    public void addMovie(@RequestBody @Validated Movie movie){
+    @PostMapping(value = "/addmovie")
+    public void addMovie(@RequestBody @Validated Movie movie) {
         movieRepository.save(movie);
     }
 
-    @DeleteMapping(value="/movies/{id}")
-    public void deleteMovie(@PathVariable("id") Integer id){
+    @DeleteMapping(value = "/movies/{id}")
+    public void deleteMovie(@PathVariable("id") Integer id) {
         movieRepository.deleteMovieById(id);
     }
 
-    @GetMapping(value="/movies/{id}")
-    public Movie getMovie(@PathVariable("id") Integer id){
+    @GetMapping(value = "/movies/{id}")
+    public Movie getMovie(@PathVariable("id") Integer id) {
         return movieRepository.findOne(id);
     }
 
-    @PutMapping(value="movies/{id}/{actorId}")
-    public void addActorMovie(@PathVariable("id") Integer id, @RequestBody @PathVariable("actorId") Integer actorId){
+    @PutMapping(value = "movies/{id}/{actorId}")
+    public void addActorMovie(@PathVariable("id") Integer id, @RequestBody @PathVariable("actorId") Integer actorId) {
         Movie movie = movieRepository.findOne(id);
         Actor actor = actorRepository.findOne(actorId);
         movie.getActors().add(actor);
